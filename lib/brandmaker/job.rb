@@ -6,21 +6,15 @@ module Brandmaker
   class Job
     extend Savon::Model
 
-    client wsdl: Brandmaker.configuration.dse_service
-    #client endpoint: Brandmaker.configuration.dse_service
-    global :basic_auth, Brandmaker.configuration.user, Brandmaker.configuration.password
-
-    #document Brandmaker.configuration.dse_service
-    #endpoint Brandmaker.configuration.dse_service
-    #basic_auth Brandmaker.configuration.user, Brandmaker.configuration.password
-
-    operations :find_by_id
+    document Brandmaker.configuration.dse_service
+    endpoint Brandmaker.configuration.dse_service
+    basic_auth Brandmaker.configuration.user, Brandmaker.configuration.password
+    actions :find_by_id
 
     # ”desriptions" is a brandmaker typo in API
 
     def self.find id
-      response = Job.new find_by_id(message: {:id => id})
-      response.body[:find_by_id_response][:return]
+      Job.new find_by_id({:id => id}).body[:find_by_id_response][:return]
     end
 
     def initialize data
