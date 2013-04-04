@@ -19,7 +19,7 @@ module Brandmaker
     class << self
       def find_by_technical_name technical_name
         name = custom_structure_name_for_mapped_technical_name(technical_name)
-        if name.present?
+        unless name.nil?
           all.find { |cs| cs.name == name }
         else
           nil

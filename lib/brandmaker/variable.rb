@@ -2,8 +2,9 @@ module Brandmaker
   class Variable
     attr_accessor :config
 
-    def initialize data
+    def initialize data, config = VariableConfig.new
       @data = data
+      @config = config
     end
 
     def data

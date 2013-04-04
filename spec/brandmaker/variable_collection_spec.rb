@@ -5,7 +5,7 @@ describe Brandmaker::VariableCollection do
   let :collection do
     Brandmaker::VariableCollection.new([
         { :technical_name => 'one' },
-        { :technical_name => 'two', :purpose => VariablePurpose::EMAIL_RECIPIENT },
+        { :technical_name => 'two', :purpose => Brandmaker::VariablePurpose::EMAIL_RECIPIENT },
         { :technical_name => 'three' }
       ])
   end
@@ -33,13 +33,13 @@ describe Brandmaker::VariableCollection do
   describe '#find_by_purpose' do
     context 'when the variable exists in the collection' do
       it 'returns the variable' do
-        collection.find_by_purpose(VariablePurpose::EMAIL_RECIPIENT).should be_a(Brandmaker::Variable)
+        collection.find_by_purpose(Brandmaker::VariablePurpose::EMAIL_RECIPIENT).should be_a(Brandmaker::Variable)
       end
     end
 
     context 'when the variable does not exist in the collection' do
       it 'raises an exception' do
-        expect { collection.find_by_purpose(VariablePurpose::EMAIL_MESSAGE) }.to raise_error "#{VariablePurpose::EMAIL_MESSAGE} is not configured for this job"
+        expect { collection.find_by_purpose(Brandmaker::VariablePurpose::EMAIL_MESSAGE) }.to raise_error "#{Brandmaker::VariablePurpose::EMAIL_MESSAGE} is not configured for this job"
       end
     end
   end

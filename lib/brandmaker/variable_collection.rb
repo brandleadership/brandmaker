@@ -10,11 +10,13 @@ module Brandmaker
     end
 
     def find_by_technical_name(technical_name)
-      self.find { |variable| variable.technical_name == technical_name }
+      find { |variable| variable.technical_name == technical_name }
     end
 
     def find_by_purpose(purpose)
-      self.find { |variable| variable.purpose == purpose } || raise("#{purpose} is not configured for this job")
+      find do |variable|
+        variable.purpose == purpose 
+      end || raise("#{purpose} is not configured for this job")
     end
 
     def unpurposed
