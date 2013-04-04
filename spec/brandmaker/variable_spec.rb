@@ -41,6 +41,24 @@ module Brandmaker
       end
     end
 
+    describe '#label' do
+      let :variable do
+        Variable.new({:technical_name => 'technical_name'})
+      end
+
+      context 'when label is configured' do
+        it 'returns configured label' do
+          variable.config = VariableConfig.new({ :label => 'label' })
+          variable.label.should == 'label'
+        end
+      end
+
+      context 'when label is not configured' do
+        it 'returns humanized technical_name' do
+          variable.label.should == 'Technical name'
+        end
+      end
+    end
   end
 end
 

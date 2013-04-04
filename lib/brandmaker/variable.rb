@@ -1,3 +1,5 @@
+require 'active_support/inflector'
+
 module Brandmaker
   class Variable
     attr_accessor :config
@@ -25,7 +27,7 @@ module Brandmaker
     end
 
     def label
-      config.label.presence || technical_name.humanize
+      config.label || technical_name.humanize
     end
 
     def type_id
