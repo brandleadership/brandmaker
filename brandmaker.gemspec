@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Brandmaker::VERSION
   gem.authors       = ["Sebastian de Castelberg"]
   gem.email         = ["sebu@kpricorn.org"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Allows access to BrandMaker JobManager (DSE) and MediaPool APIs}
+  gem.summary       = %q{Ruby based BrandMaker API}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
