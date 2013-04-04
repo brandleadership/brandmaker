@@ -1,3 +1,5 @@
+require 'active_support/core_ext'
+
 require 'brandmaker/variable'
 
 module Brandmaker
@@ -21,7 +23,9 @@ module Brandmaker
     end
 
     def actual_values
-      rows.map { |row| row.try(:[], :variable).try(:[], :value).presence }.compact
+      rows.map do |row|
+        row.try(:[], :variable).try(:[], :value).presence
+      end.compact
     end
 
     def custom_structure_values
