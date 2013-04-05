@@ -6,11 +6,11 @@ module Brandmaker
   class CustomStructure
     extend Savon::Model
 
-    document Brandmaker.configuration.dse_service
-    endpoint Brandmaker.configuration.dse_service
-    basic_auth Brandmaker.configuration.user, Brandmaker.configuration.password
-
     actions :find_all_custom_structures
+
+    def self.client
+      Brandmaker.configuration.dse_client
+    end
 
     class << self
       def find_by_technical_name technical_name

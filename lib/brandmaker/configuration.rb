@@ -5,7 +5,13 @@ module Brandmaker
   end
 
   def self.configure
-    yield(self.configuration)
+    yield(configuration)
+
+    configuration.dse_client = Savon.client do |wsdl, http, wsse|
+      wsdl.document = configuration.dse_service
+      wsdl.endpoint = configuration.dse_service
+      http.auth.basic(configuration.user, configuration.password)
+    end
   end
 
   def self.configuration
@@ -20,30 +26,11 @@ module Brandmaker
     attr_accessor :external_media_service
     attr_accessor :job_configs
 
+    attr_accessor :dse_client
+    attr_reader :media_pool_client
+
     def initialize
-      @user = 'screenconcept'
-      @password = 'sc1234'
-      @dse_service = 'https://brandmaker.kuoni.ch/webservices/dse/?wsdl'
-      @media_pool_service = 'https://brandmaker.kuoni.ch/webservices/MediaPool/?wsdl'
-      @external_media_service = 'https://brandmaker.kuoni.ch/GetMediaForExternalApplication.do'
-
-      screenconcept = JobConfig.new('screenconcept__hauptjob').tap do |c|
-        c.add_variables(
-          :einfaches_textfeld,
-          :einfachauswahl,
-          { :name => :mehrzeiliges_textfeld_ohne_formatierung, :label => 'Langer Text' },
-          :datumsauswahl,
-          :mehrfachauswahl_selectionbox,
-          :mehrfachauswahl_checkbox,
-          { :name => :medienobjektauswahl, :content_type => :media },
-          :datumsfeld_mit_zeitangabe,
-          { :name => :email, :purpose => VariablePurpose::EMAIL_RECIPIENT },
-          { :name => :betreff, :purpose => VariablePurpose::EMAIL_SUBJECT },
-          { :name => :message, :purpose => VariablePurpose::EMAIL_MESSAGE }
-        )
-      end
-
-      @job_configs = { :screenconcept__hauptjob => screenconcept }
+      @job_configs = {}
     end
   end
 

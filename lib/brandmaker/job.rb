@@ -6,10 +6,11 @@ module Brandmaker
   class Job
     extend Savon::Model
 
-    document Brandmaker.configuration.dse_service
-    endpoint Brandmaker.configuration.dse_service
-    basic_auth Brandmaker.configuration.user, Brandmaker.configuration.password
     actions :find_by_id
+
+    def self.client
+      Brandmaker.configuration.dse_client
+    end
 
     # ”desriptions" is a brandmaker typo in API
 
