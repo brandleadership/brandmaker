@@ -37,14 +37,8 @@ module Brandmaker
 
     def initialize
       @job_configs = {}
-    end
-
-    def media_pool_client
-      @media_pool_client ||= Savon.client
-    end
-
-    def dse_client
-      @dse_client ||= Savon.client
+      @media_pool_client = Savon.client
+      @dse_client = Savon.client
     end
   end
 
