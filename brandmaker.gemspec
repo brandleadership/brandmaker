@@ -6,8 +6,8 @@ require 'brandmaker/version'
 Gem::Specification.new do |gem|
   gem.name          = "brandmaker"
   gem.version       = Brandmaker::VERSION
-  gem.authors       = ["Sebastian de Castelberg"]
-  gem.email         = ["sebu@kpricorn.org"]
+  gem.authors       = ["Immanuel Häussermann", "Sebastian de Castelberg"]
+  gem.email         = ["developers@screenconcept.ch"]
   gem.description   = %q{Allows access to BrandMaker JobManager (DSE) and MediaPool APIs}
   gem.summary       = %q{Ruby based BrandMaker API}
   gem.homepage      = ""
