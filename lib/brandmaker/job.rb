@@ -39,9 +39,9 @@ module Brandmaker
       available_variable_names = @plain_variables.map(&:technical_name)
       @variables ||= Brandmaker::VariableCollection.new(
         config.variables.select do |variable_config|
-          available_variable_names.include? variable_config.name
+          available_variable_names.include? variable_config.name.to_s
         end.collect do |variable_config|
-          variable = @plain_variables.find_by_technical_name(variable_config.name)
+          variable = @plain_variables.find_by_technical_name(variable_config.name.to_s)
           configured_variable = variable_config.to_typed_instance(variable.data)
           configured_variable.config = variable_config
           configured_variable
