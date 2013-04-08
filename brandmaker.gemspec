@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["developers@screenconcept.ch"]
   gem.description   = %q{Allows access to BrandMaker JobManager (DSE) and MediaPool APIs}
   gem.summary       = %q{Ruby based BrandMaker API}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/screenconcept/brandmaker"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
