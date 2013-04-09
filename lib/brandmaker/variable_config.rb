@@ -11,9 +11,10 @@ module Brandmaker
     attr_accessor :purpose
 
     VARIABLE_TYPES = {
-      :"" => Variable,
-      :media => MediaVariable,
-      :grid => GridVariable
+      :""             => Variable,
+      :media          => MediaVariable,
+      :external_media => ExternalMediaVariable,
+      :grid           => GridVariable
     }
 
     def initialize(*h)
