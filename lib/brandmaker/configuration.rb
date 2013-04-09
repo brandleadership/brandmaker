@@ -30,6 +30,7 @@ module Brandmaker
     attr_accessor :dse_service
     attr_accessor :media_pool_service
     attr_accessor :external_media_service
+    attr_accessor :external_media_service_secret
     attr_accessor :job_configs
 
     attr_accessor :dse_client

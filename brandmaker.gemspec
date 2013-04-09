@@ -19,6 +19,8 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'savon', '~> 1.2.0'
   gem.add_dependency 'activesupport'
+  gem.add_dependency 'rest-client'
+  gem.add_dependency 'json'
 
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'pry'
