@@ -23,6 +23,7 @@ module Brandmaker
       end
       self.fileOriginalName = hash['fileOriginalName']
       self.downloadUrl = hash['downloadUrl']
+      self
     end
   end
 end
