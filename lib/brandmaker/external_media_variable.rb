@@ -17,6 +17,10 @@ module Brandmaker
         }
       )
       hash = JSON.parse(res)
+      error = hash['ERROR'].presence
+      if error
+        raise error
+      end
       self.fileOriginalName = hash['fileOriginalName']
       self.downloadUrl = hash['downloadUrl']
     end
