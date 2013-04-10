@@ -5,6 +5,7 @@ module Brandmaker
   class ExternalMediaVariable < Variable
     attr_accessor :downloadUrl
     attr_accessor :fileOriginalName
+    attr_accessor :fileType
 
     def reload
       res = RestClient.get(
@@ -23,6 +24,7 @@ module Brandmaker
       end
       self.fileOriginalName = hash['fileOriginalName']
       self.downloadUrl = hash['downloadUrl']
+      self.fileType = hash['fileType']
       self
     end
   end

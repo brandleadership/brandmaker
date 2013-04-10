@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## next
+
+* Additional `fileType` in ExternalMediaVariable
+
 ## 2013-04-08 - v0.0.1
 
 * Extract common BrandMaker code
