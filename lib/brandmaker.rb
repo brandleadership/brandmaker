@@ -10,3 +10,8 @@ require "brandmaker/external_media_variable"
 require "brandmaker/variable_config"
 require "brandmaker/variable"
 require "brandmaker/variable_collection"
+
+Savon.configure do |config|
+  config.log = false
+  config.log_level = :info
+end

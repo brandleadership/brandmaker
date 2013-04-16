@@ -3,6 +3,7 @@
 ## next
 
 * Additional `fileType` in ExternalMediaVariable
+* Disable Savon stdout logging
 
 ## 2013-04-08 - v0.0.1
 
