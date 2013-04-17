@@ -7,6 +7,10 @@ module Brandmaker
     attr_accessor :fileOriginalName
     attr_accessor :fileType
 
+    def value
+      super.split(",")[0]
+    end
+
     def reload
       res = RestClient.get(
         Brandmaker.configuration.external_media_service,
