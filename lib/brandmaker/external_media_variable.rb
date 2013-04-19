@@ -8,28 +8,30 @@ module Brandmaker
     attr_accessor :fileType
 
     def value
-      super.split(",")[0]
+      super.split(",")[0] rescue nil
     end
 
     def reload
-      res = RestClient.get(
-        Brandmaker.configuration.external_media_service,
-        {
-          :params => {
-            :mediaID => value,
-            :secret => Brandmaker.configuration.external_media_service_secret
+      if value.present?
+        res = RestClient.get(
+          Brandmaker.configuration.external_media_service,
+          {
+            :params => {
+              :mediaID => value,
+              :secret => Brandmaker.configuration.external_media_service_secret
+            }
           }
-        }
-      )
-      hash = JSON.parse(res)
-      error = hash['ERROR'].presence
-      if error
-        raise error
+        )
+        hash = JSON.parse(res)
+        error = hash['ERROR'].presence
+        if error
+          raise error
+        end
+        self.fileOriginalName = hash['fileOriginalName']
+        self.downloadUrl = hash['downloadUrl']
+        self.fileType = hash['fileType']
+        self
       end
-      self.fileOriginalName = hash['fileOriginalName']
-      self.downloadUrl = hash['downloadUrl']
-      self.fileType = hash['fileType']
-      self
     end
   end
 end

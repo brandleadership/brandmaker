@@ -12,14 +12,14 @@ module Brandmaker
 
       let :var do
         ExternalMediaVariable.new({
-          :value => 130
+          :value => "130"
         })
       end
 
       context 'with valid mediaID' do
         before :each do
           RestClient.should_receive(:get).with(
-            'URL', {:params => {:mediaID => 130, :secret => 'SECRET'}}
+            'URL', {:params => {:mediaID => "130", :secret => 'SECRET'}}
           ).and_return({
             :downloadUrl => "download url",
             :fileOriginalName => "original name"
