@@ -8,7 +8,7 @@ module Brandmaker
     attr_accessor :fileType
 
     def value
-      super.split(",")[0] rescue nil
+      super.split(",").last rescue nil
     end
 
     def reload

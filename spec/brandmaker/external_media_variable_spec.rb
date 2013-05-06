@@ -4,6 +4,29 @@ require 'json'
 module Brandmaker
   describe ExternalMediaVariable do
 
+    describe '#value' do
+      context 'when no value is available' do
+        it 'returns nil' do
+          var = ExternalMediaVariable.new({ :value => nil })
+          var.value.should be_nil
+        end
+      end
+
+      context 'when a single value is available' do
+        it 'returns that value' do
+          var = ExternalMediaVariable.new({ :value => "one" })
+          var.value.should == 'one'
+        end
+      end
+
+      context 'when multiple values are available' do
+        it 'returns the last value' do
+          var = ExternalMediaVariable.new({ :value => "one,two" })
+          var.value.should == 'two'
+        end
+      end
+    end
+
     describe '#reload' do
       before :each do
         Brandmaker.configuration.external_media_service = 'URL'
@@ -11,9 +34,7 @@ module Brandmaker
       end
 
       let :var do
-        ExternalMediaVariable.new({
-          :value => "130"
-        })
+        ExternalMediaVariable.new({ :value => "130" })
       end
 
       context 'with valid mediaID' do
