@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## next
+## 2013-05-06 - v0.1.0
 
 * Additional `fileType` in ExternalMediaVariable
 * Disable Savon stdout logging
