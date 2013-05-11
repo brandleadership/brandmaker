@@ -149,7 +149,7 @@ module Brandmaker
                 :variable=>
                 {
                   :technical_name=>"emailadresse",
-                  :value=>"Immanuel (immanuel.haeussermann@screenconcept.ch)",
+                  :value=>"Immanuel (imanul@screenconcept.ch)",
                   :variable_type_id=>"11247"
                 }
               },
@@ -159,7 +159,7 @@ module Brandmaker
                 :variable=>
                 {
                   :technical_name=>"emailadresse",
-                  :value=>"Michi (michael.friedli@gateb.com)",
+                  :value=>"Michi (michif@gateb.com)",
                   :variable_type_id=>"11247"
                 }
               }
@@ -195,9 +195,9 @@ module Brandmaker
       {:label=>"PM_ExterneSuppliers_Druckereien",
             :name=>"PM_ExterneSuppliers_Druckereien",
             :objects=>
-             [{:label=>"Demo Druck (immanuel.haeussermann@screenconcept.ch)",
+             [{:label=>"Demo Druck (imanul@screenconcept.ch)",
                :name=>"Demo Druck"},
-              {:label=>"Demo Druck 2 (michael.friedli@gateb.com)",
+              {:label=>"Demo Druck 2 (michif@gateb.com)",
                :name=>"Demo Druck 2"}
               ]}
     end

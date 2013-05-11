@@ -32,7 +32,7 @@ module Brandmaker
           end
 
           it 'returns an array of email addresses' do
-            grid_var.value.should == %w(immanuel.haeussermann@screenconcept.ch michael.friedli@gateb.com)
+            grid_var.value.should == %w(imanul@screenconcept.ch michif@gateb.com)
           end
 
           it 'parses the values' do
@@ -90,8 +90,8 @@ module Brandmaker
       it 'parses the email address from the value' do
         grid_var = Brandmaker::GridVariable.new({})
         grid_var.stub!(:custom_structure).and_return(nil)
-        address = grid_var.extract_email('Immanuel (immanuel.haeussermann@screenconcept.ch)')
-        address.should == 'immanuel.haeussermann@screenconcept.ch'
+        address = grid_var.extract_email('Immanuel (imanul@screenconcept.ch)')
+        address.should == 'imanul@screenconcept.ch'
       end
     end
 
